@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- Application Loggers (패키지 별로 심각성 출력 수준을 다르게 하고 싶을 때)-->
+	<logger name="com.mycompany.web.controller">
+		<level value="error"/>
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<logger name="com.mycompany.web.dao">
+		<level value="info"/>
+		<appender-ref ref="console"/>
+	</logger>
+
+	<!-- Root Logger (모든 패키지에 일괄적으로 같은 수준의 심각성을 출력하고 싶을 때) -->
+	<!-- 
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="console" />
+	</root>
+	 -->
+	
+</log4j:configuration>
